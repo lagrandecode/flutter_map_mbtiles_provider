@@ -1,5 +1,3 @@
-library flutter_map_mbtiles_provider;
-
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui';
@@ -8,9 +6,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
-// import 'package:flutter_map/src/layer/tile_provider/tile_provider.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
+
+/// Simple Coords class to hold x, y, and z values for tiles
+class Coords<T> {
+  final T x, y, z;
+
+  Coords(this.x, this.y, this.z);
+
+  @override
+  String toString() => 'Coords(x: $x, y: $y, z: $z)';
+}
 
 class MBTilesImageProvider extends TileProvider {
   final String asset;
